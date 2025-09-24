@@ -2,20 +2,20 @@
 
 A **Full-Stack Job Listing Platform** built with the **MERN Stack** and a custom **web scraper** using Puppeteer. This project allows users to **create, view, search, filter, sort, and delete jobs**, while also scraping live jobs from ActuaryList.
 
------
+---
 
 ## ✨ Features
 
-  - 🔹 **MERN Stack** (MongoDB, Express, React, Node.js)
-  - 🔹 **RESTful APIs** with validation and error handling
-  - 🔹 **Filtering, sorting, and pagination** for jobs
-  - 🔹 **Frontend UI** built with React, Vite, and Tailwind CSS
-  - 🔹 **Toast notifications** for success and errors
-  - 🔹 **Puppeteer Scraper** for fetching external job listings
-  - 🔹 **Environment variables support** with `.env`
-  - 🔹 Centralized error handler and reusable validators
+- 🔹 **MERN Stack** (MongoDB, Express, React, Node.js)
+- 🔹 **RESTful APIs** with validation and error handling
+- 🔹 **Filtering, sorting, and pagination** for jobs
+- 🔹 **Frontend UI** built with React, Vite, and Tailwind CSS
+- 🔹 **Toast notifications** for success and errors
+- 🔹 **Puppeteer Scraper** for fetching external job listings
+- 🔹 **Environment variables support** with `.env`
+- 🔹 Centralized error handler and reusable validators
 
------
+---
 
 ## 📂 Project Structure
 
@@ -39,7 +39,7 @@ repo/
 └── server.js # App entry point
 ```
 
------
+---
 
 ## ⚙️ Installation & Setup
 
@@ -83,21 +83,21 @@ npm run dev
 The frontend will start on `http://localhost:5173`.
 The API runs at `http://localhost:5000/api/jobs`.
 
------
+---
 
 ## 🔗 API Endpoints
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `GET` | `/api/jobs` | Get all jobs (with filters) |
-| `GET` | `/api/jobs/:id` | Get a job by ID |
-| `POST` | `/api/jobs` | Create a new job |
-| `PUT` | `/api/jobs/:id` | Update a job (replace) |
-| `PATCH` | `/api/jobs/:id` | Update a job (partial) |
-| `DELETE` | `/api/jobs/:id` | Delete a job |
-| `POST` | `/api/jobs/scrape` | Trigger scraper (with token) |
+| Method   | Endpoint           | Description                  |
+| :------- | :----------------- | :--------------------------- |
+| `GET`    | `/api/jobs`        | Get all jobs (with filters)  |
+| `GET`    | `/api/jobs/:id`    | Get a job by ID              |
+| `POST`   | `/api/jobs`        | Create a new job             |
+| `PUT`    | `/api/jobs/:id`    | Update a job (replace)       |
+| `PATCH`  | `/api/jobs/:id`    | Update a job (partial)       |
+| `DELETE` | `/api/jobs/:id`    | Delete a job                 |
+| `POST`   | `/api/jobs/scrape` | Trigger scraper (with token) |
 
------
+---
 
 ## 🖥️ Frontend Preview
 
@@ -109,7 +109,7 @@ The API runs at `http://localhost:5000/api/jobs`.
 
 **Toast Notifications** for success and errors.
 
------
+---
 
 ## 🕷️ Scraper (Puppeteer)
 
@@ -128,7 +128,7 @@ Run the scraper via API (protected with a token):
 POST http://localhost:5000/api/jobs/scrape?token=12345
 ```
 
------
+---
 
 ## 🧪 Testing with Postman
 
@@ -142,11 +142,11 @@ server/postman/jobs_api.json
 
 1.  Import the JSON file into Postman.
 2.  Set environment variables:
-      - `baseUrl` = `http://localhost:5000`
-      - `jobId` = `<after creating a job>`
+    - `baseUrl` = `http://localhost:5000`
+    - `jobId` = `<after creating a job>`
 3.  Run the CRUD requests directly.
 
------
+---
 
 ## 🛠️ Tech Stack
 
@@ -156,7 +156,7 @@ server/postman/jobs_api.json
 **Scraping:** Puppeteer
 **Dev Tools:** Nodemon, Morgan
 
------
+---
 
 ## 👨‍💻 Author
 
