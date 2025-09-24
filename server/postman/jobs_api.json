@@ -1,0 +1,157 @@
+{
+	"info": {
+		"name": "Jobs API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_postman_id": "f3b2e0d8-1111-4d2c-b111-aaaaaaaaaaaa"
+	},
+	"variable": [
+		{ "key": "baseUrl", "value": "http://localhost:5000" },
+		{ "key": "jobId", "value": "66f1e3b9a7d5f3a0b5c1d234" }
+	],
+	"item": [
+		{
+			"name": "Health - GET /api/health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/health",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "health"]
+				}
+			}
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Create Job - POST /api/jobs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Data Analyst\",\n  \"company\": \"Acme Corp\",\n  \"location\": \"London, UK\",\n  \"posting_date\": \"2025-09-01\",\n  \"job_type\": \"Full-time\",\n  \"tags\": [\"Pricing\", \"Health\"]\n}",
+							"options": { "raw": { "language": "json" } }
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{ "key": "Content-Type", "value": "application/json" }
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Data Analyst\",\n  \"company\": \"Acme Corp\",\n  \"location\": \"London, UK\",\n  \"posting_date\": \"2025-09-01\",\n  \"job_type\": \"Full-time\",\n  \"tags\": [\"Pricing\", \"Health\"]\n}",
+									"options": { "raw": { "language": "json" } }
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/jobs",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "jobs"]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"body": "{\n  \"_id\": \"{{jobId}}\",\n  \"title\": \"Data Analyst\",\n  \"company\": \"Acme Corp\",\n  \"location\": \"London, UK\",\n  \"posting_date\": \"2025-09-01T00:00:00.000Z\",\n  \"job_type\": \"Full-time\",\n  \"tags\": [\"Pricing\", \"Health\"],\n  \"createdAt\": \"2025-09-24T10:00:00.000Z\",\n  \"updatedAt\": \"2025-09-24T10:00:00.000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Jobs - GET /api/jobs (filters, sort, pagination)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs?job_type=Full-time&location=London&tags=Pricing,Health&q=analyst&sort=posting_date_desc&page=1&limit=10",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs"],
+							"query": [
+								{ "key": "job_type", "value": "Full-time" },
+								{ "key": "location", "value": "London" },
+								{ "key": "tags", "value": "Pricing,Health" },
+								{ "key": "q", "value": "analyst" },
+								{ "key": "sort", "value": "posting_date_desc" },
+								{ "key": "page", "value": "1" },
+								{ "key": "limit", "value": "10" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Job By ID - GET /api/jobs/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{jobId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{jobId}}"]
+						}
+					}
+				},
+				{
+					"name": "Update Job (PUT) - PUT /api/jobs/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Senior Data Analyst\",\n  \"company\": \"Acme Corp\",\n  \"location\": \"London, UK\",\n  \"posting_date\": \"2025-09-05\",\n  \"job_type\": \"Full-time\",\n  \"tags\": [\"Pricing\", \"Health\", \"SQL\"]\n}",
+							"options": { "raw": { "language": "json" } }
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{jobId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{jobId}}"]
+						}
+					}
+				},
+				{
+					"name": "Update Job (PATCH) - PATCH /api/jobs/:id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"Remote - UK\",\n  \"tags\": [\"Pricing\", \"Remote\"]\n}",
+							"options": { "raw": { "language": "json" } }
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{jobId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{jobId}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Job - DELETE /api/jobs/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jobs/{{jobId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "jobs", "{{jobId}}"]
+						}
+					}
+				}
+			]
+		}
+	]
+} 
