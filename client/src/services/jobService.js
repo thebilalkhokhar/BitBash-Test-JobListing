@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./constants";
 
 const api = axios.create({
-  baseURL: BASE_URL,
+  baseURL: "/api",
   headers: { "Content-Type": "application/json" },
   // You can add interceptors here for logging/errors if needed
 });
